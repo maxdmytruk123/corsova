@@ -68,11 +68,7 @@ export class AppService {
         id: user.id,
       },
       data: {
-        data: {
-          testInfo: {
-            push: data,
-          }
-        }
+        data: data
       }
 
     });
