@@ -14,8 +14,8 @@ export class AppController {
   // Отримання інформації користувача
   @Get('user-info/:name')
   async getUserInfo(@Param('name') name: string) {
-    const exists = await this.appService.getUserInfo(name);
-    return { exists }
+    const info = await this.appService.getUserInfo(name);
+    return { info }
   }
 
   // Перевірка чи існує користувач
