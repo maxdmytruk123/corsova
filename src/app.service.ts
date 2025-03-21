@@ -48,4 +48,34 @@ export class AppService {
     return user?.data ?? null;
   }
 
+  // Додавання інформацію по тесту користувачу
+  async sendComentar(data: any, name: string): Promise<any> {
+    const user = await this.databaseService.post.findFirst({
+      where: {
+        data: {
+          path: '$.name',
+          equals: name, 
+        },
+      },
+    });
+  
+    if (!user) {
+      throw new Error('User not found');
+    }
+  
+    return this.databaseService.post.update({
+      where: {
+        id: user.id,
+      },
+      data: {
+        data: {
+          testInfo: {
+            push: data,
+          }
+        }
+      }
+
+    });
+  }
+
 }

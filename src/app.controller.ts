@@ -31,4 +31,10 @@ export class AppController {
   async create(@Body() data:any) {
    return this.appService.save(data)
   }
+
+  // ДОдавання результатів тесту до масиву в базі даних
+  @Post(':name/addTest')
+  async sendComentar(@Body() data:any, @Param('name') name: string) {
+   return this.appService.sendComentar(data, name)
+  }
 }
