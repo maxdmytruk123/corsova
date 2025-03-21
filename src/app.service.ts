@@ -11,6 +11,7 @@ export class AppService {
 
   // Збереження інформації коли користувач зареєструвався
   async save(dto: any) {
+    console.log(dto)
     return this.databaseService.post.create({
       data: {
         data: dto,
